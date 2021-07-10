@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test name="Test" thread-count="1" parallel="classes">
         <classes>
-            <class name="org.example.AppTest"/>
+            <class name="org.jupiter.TestCases"/>
         </classes>
     </test>
 </suite>
