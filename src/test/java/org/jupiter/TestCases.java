@@ -17,14 +17,29 @@ public class TestCases {
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         driver.get("https://jupiter.cloud.planittesting.com/");
         home = new Home(driver, wait);
     }
 
     @Test
     public void testCase1() {
-        home.getTitle();
+        home.clickContact()
+                .clickSubmitBtn()
+                .validateErrorAndDealWithIt()
+                .isErrorPresentIfYesFailTest();
+    }
+
+    @Test
+    public void testCase2() {
+        home.clickContact()
+                .enterForename("John")
+                .enterSurname("Doe")
+                .enterEmail("test2@test.com")
+                .enterPhone("0422333444")
+                .enterMessage("Amazing website!")
+                .clickSubmitBtn()
+                .isErrorPresentIfYesFailTest();
     }
 
     @After
