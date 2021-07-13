@@ -46,6 +46,7 @@ public class Contact {
     }
 
     public Contact isErrorPresentIfYesFailTest() {
+        System.out.println("checking if there is an error...");
         if (genericMethods.isElementPresent(alertError)) {
             System.out.println("error detected, test failed");
             fail();
